@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Đình Gia Bảo - Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Patrick+Hand&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Courier Prime', 'monospace'],
+                        serif: ['Playfair Display', 'serif'],
+                        hand: ['Patrick Hand', 'cursive'],
+                    },
+                    colors: {
+                        paper: {
+                            50: '#fdfbf7', // Off-white paper
+                            100: '#f4f4f4',
+                        },
+                        pencil: {
+                            black: '#1a1a1a',
+                            gray: '#555555',
+                            light: '#a0a0a0',
+                        }
+                    },
+                    backgroundImage: {
+                        'paper-texture': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmRmYmY3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlNWU1ZTUiLz4KPC9zdmc+')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmRmYmY3Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlNWU1ZTUiLz4KPC9zdmc+");
+        }
+
+        .sketch-border {
+            border: 2px solid #1a1a1a;
+            border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
+            box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .sketch-button {
+            border: 2px solid #1a1a1a;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            transition: all 0.3s ease;
+        }
+
+        .sketch-button:hover {
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+            transform: translate(-2px, -2px);
+        }
+
+        .sketch-underline {
+            text-decoration: none;
+            position: relative;
+        }
+
+        .sketch-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1a1a1a;
+            transform: skew(-10deg) rotate(-1deg);
+            opacity: 0.6;
+        }
+
+        /* Handwritten Text Fade In */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-pencil-black selection:bg-pencil-black selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-paper-50/95 backdrop-blur-sm border-b-2 border-pencil-black/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-hand tracking-widest text-pencil-black">
+                GiaBao<span class="text-pencil-gray">.java</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-sans font-bold">
+                <a href="#about"
+                    class="hover:line-through decoration-2 decoration-pencil-black transition-all">About</a>
+                <a href="#skills"
+                    class="hover:line-through decoration-2 decoration-pencil-black transition-all">Skills</a>
+                <a href="#projects"
+                    class="hover:line-through decoration-2 decoration-pencil-black transition-all">Projects</a>
+                <a href="#contact"
+                    class="hover:line-through decoration-2 decoration-pencil-black transition-all">Contact</a>
+            </div>
+            <a href="#contact" class="md:hidden text-pencil-black">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 fade-in-up z-10">
+                <p class="text-pencil-gray font-hand text-xl">Hello world, I'm</p>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-pencil-black leading-tight">
+                    Nguyễn Đình <br>
+                    <span class="sketch-underline">Gia Bảo</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-pencil-gray font-light font-hand">
+                    Back-end Developer Internship
+                </h2>
+                <p
+                    class="text-lg text-pencil-black max-w-lg leading-relaxed font-sans border-l-4 border-pencil-black pl-4">
+                    Software Engineering Student (2023-2027) at Van Lang University.
+                    <br>Building systems with
+                    <strong>Java Ecosystem</strong> & <strong>Spring Boot</strong>.
+                    <br><span class="text-sm font-hand text-pencil-gray mt-2 block italic">GPA: 7.1 • Always
+                        Learning</span>
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4 font-sans font-bold">
+                    <a href="https://github.com/nguyendinhgiabao" target="_blank"
+                        class="sketch-button px-8 py-3 bg-white text-pencil-black flex items-center gap-2 group">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        Github
+                    </a>
+                    <a href="#contact" class="sketch-button px-8 py-3 bg-pencil-black text-white hover:bg-gray-800">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative hidden md:flex justify-center items-center">
+                <!-- Abstract Pencil shapes -->
+                <div class="absolute w-80 h-80 border-2 border-pencil-black rounded-full opacity-20 transform -translate-x-4 -translate-y-4"
+                    style="border-style: dashed;"></div>
+                <div
+                    class="absolute w-80 h-80 border-2 border-pencil-gray rounded-full opacity-20 transform translate-x-4 translate-y-4">
+                </div>
+
+                <!-- Code Snippet -->
+                <div
+                    class="relative bg-white sketch-border p-8 z-10 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div
+                        class="absolute -top-3 -left-3 w-8 h-8 rounded-full border-2 border-pencil-black bg-white flex items-center justify-center font-bold">
+                        !</div>
+                    <code class="font-sans text-sm leading-6 block">
+                        <span class="font-bold">class</span> Developer {<br>
+                        &nbsp;&nbsp;<span class="italic text-pencil-gray">// TODO: Keep coding</span><br>
+                        &nbsp;&nbsp;String name = "Gia Bao";<br>
+                        &nbsp;&nbsp;String[] tools = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"Java", "Spring", "Coffee"<br>
+                        &nbsp;&nbsp;};<br>
+                        }
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 border-t-2 border-pencil-black/10">
+        <div class="container mx-auto px-6">
+            <h2
+                class="text-3xl md:text-5xl font-serif font-bold text-center mb-16 relative inline-block left-1/2 transform -translate-x-1/2">
+                About Me
+                <span
+                    class="absolute -bottom-2 left-0 w-full h-1 bg-pencil-black transform -skew-x-12 opacity-50"></span>
+            </h2>
+
+            <div
+                class="max-w-4xl mx-auto sketch-border bg-white p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
+                <div class="w-48 h-48 flex-shrink-0 relative">
+                    <div class="absolute inset-0 border-2 border-pencil-black translate-x-2 translate-y-2 rounded-lg">
+                    </div>
+                    <div
+                        class="absolute inset-0 border-2 border-pencil-black -translate-x-1 -translate-y-1 bg-white rounded-lg overflow-hidden">
+                        <!-- User provided avatar -->
+                        <img src="avata.png" alt="Gia Bao Avatar"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+
+                <div class="flex-1">
+                    <p class="text-pencil-black text-lg font-sans mb-6 leading-relaxed">
+                        I am a technology student passionate about problem-solving and system optimization.
+                        Besides studying at university with a <span class="font-bold border-b-2 border-pencil-gray">GPA
+                            of 7.1</span>,
+                        I actively participate in scientific research on web technology and algorithmic programming
+                        contests like ICPC.
+                    </p>
+                    <p class="text-xl font-hand text-pencil-gray mb-6">
+                        "Variable myDream = new Success();"
+                    </p>
+                    <div class="flex flex-wrap gap-3 font-sans text-xs font-bold uppercase tracking-wider">
+                        <span class="px-3 py-1 border border-pencil-black rounded-full">Problem Solving</span>
+                        <span class="px-3 py-1 border border-pencil-black rounded-full">Web Tech</span>
+                        <span class="px-3 py-1 border border-pencil-black rounded-full">ICPC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-pencil-light/5">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-center mb-16">
+                Skills & <span class="italic font-hand">Tools</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Programming -->
+                <div class="sketch-border bg-white p-6 hover:-translate-y-2 transition-transform">
+                    <h3 class="text-2xl font-serif font-bold mb-6 border-b-2 border-dashed border-pencil-black pb-2">
+                        Programming</h3>
+                    <ul class="space-y-3 font-sans">
+                        <li class="flex items-center gap-3">
+                            <span class="text-xl">Coffee.java</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-pencil-black rounded-full"></div>Java Core
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-pencil-black rounded-full"></div>Java OOP
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-gray-400 rounded-full"></div>Data Structures
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Framework -->
+                <div class="sketch-border bg-white p-6 hover:-translate-y-2 transition-transform">
+                    <h3 class="text-2xl font-serif font-bold mb-6 border-b-2 border-dashed border-pencil-black pb-2">
+                        Tech Stack</h3>
+                    <ul class="space-y-3 font-sans">
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-pencil-black rounded-full"></div>Spring Boot
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-pencil-black rounded-full"></div>MySQL
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-gray-400 rounded-full"></div>Hibernate / JPA
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-gray-400 rounded-full"></div>RESTful API
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div class="sketch-border bg-white p-6 hover:-translate-y-2 transition-transform">
+                    <h3 class="text-2xl font-serif font-bold mb-6 border-b-2 border-dashed border-pencil-black pb-2">
+                        Misc</h3>
+                    <div class="space-y-4 font-sans">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-gray-200 text-xs font-bold">Github</span>
+                            <span class="px-2 py-1 bg-gray-200 text-xs font-bold">Cursor</span>
+                            <span class="px-2 py-1 bg-gray-200 text-xs font-bold">Postman</span>
+                        </div>
+                        <ul class="space-y-2 text-sm pt-4 border-t border-gray-200">
+                            <li>Check: ICPC Participant</li>
+                            <li>Check: Web Dev Cert</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-center mb-16">
+                Featured Projects
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Project 1 -->
+                <div class="group sketch-border bg-white overflow-hidden">
+
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold font-serif mb-2">E-Commerce Backend</h3>
+                        <p class="text-pencil-gray font-sans text-sm mb-6">
+                            Online sales system built with Spring Boot, integrating payment and order management. Uses
+                            MySQL and Redis caching.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="font-mono text-xs font-bold flex gap-2">
+                                <span>[Java]</span>
+                                <span>[Spring]</span>
+                                <span>[MySQL]</span>
+                            </div>
+                            <a href="#"
+                                class="font-bold border-b-2 border-transparent hover:border-pencil-black transition-all">Details
+                                -></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group sketch-border bg-white overflow-hidden">
+
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold font-serif mb-2">Student Management</h3>
+                        <p class="text-pencil-gray font-sans text-sm mb-6">
+                            Student management application with role-based access, attendance, and learning statistics.
+                            Microservices architecture.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="font-mono text-xs font-bold flex gap-2">
+                                <span>[Java]</span>
+                                <span>[Docker]</span>
+                                <span>[React]</span>
+                            </div>
+                            <a href="#"
+                                class="font-bold border-b-2 border-transparent hover:border-pencil-black transition-all">Details
+                                -></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-pencil-black text-white relative">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">
+                Get In Touch
+            </h2>
+            <p class="text-gray-400 mb-12 max-w-xl mx-auto font-sans">
+                Open to collaboration. Drop me a line.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
+                <a href="tel:0398961702"
+                    class="border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all font-bold font-mono">
+                    039-896-1702
+                </a>
+
+                <a href="mailto:baonguyendinhgia9@gmail.com"
+                    class="border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all font-bold font-mono">
+                    baonguyendinhgia9@gmail.com
+                </a>
+            </div>
+
+            <footer class="border-t border-gray-800 pt-8">
+                <p class="text-gray-500 text-sm font-hand">
+                    © 2024 Gia Bao. Sketch Theme.
+                </p>
+            </footer>
+        </div>
+    </section>
+
+</body>
+
+</html>
